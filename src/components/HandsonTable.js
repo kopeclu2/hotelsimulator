@@ -105,7 +105,11 @@ class Table extends React.Component {
             className: 'handsonTable',
           }}
         />
-        <button onClick={()=>this.props.fetchMonth(this.state.monthsNames[this.state.month])} >Send</button>
+        <button 
+        style={{margin:'0px auto',display:'block'}}
+        className='ui button primary '
+        onClick={()=>this.props.fetchMonth(this.state.monthsNames[this.state.month])} >
+          Send</button>
       </div>
     );
   }

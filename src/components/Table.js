@@ -24,7 +24,7 @@ class Table extends React.Component {
     console.log(this.props.readOnlyState);
     return (
       <div>
-        <div onClick={this.props.readOnly}>read only </div>
+    
         <HotTable
           settings={{
             data: this.props.data.table2,

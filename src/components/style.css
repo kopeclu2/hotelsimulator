@@ -44,3 +44,7 @@
 .row .column h1 {
 	text-align: center;
 }
+.content {
+	display: flex !important;
+	justify-content: center !important;
+}
