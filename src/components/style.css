@@ -1,16 +1,46 @@
-.handsontable th{
-    background:#f0f0f0;
+.handsontable th {
+	background: #f0f0f0;
 }
-.handsontable td{
-    background:  cornflowerblue;
+.handsontable td {
+	background: cornflowerblue;
 }
 #myProgress {
-    width: 100%;
-    background-color: #ddd;
-  }
-  
-  #myBar {
-    width: 1%;
-    height: 30px;
-    background-color: #4CAF50;
-  }
+	width: 100%;
+	background-color: #ddd;
+}
+
+#myBar {
+	width: 1%;
+	height: 30px;
+	background-color: #4caf50;
+}
+.handsonTable {
+	text-align: center;
+	width: 100%;
+}
+.handsonTable tbody tr td {
+	background-color: white;
+}
+.handsonTable tbody tr th {
+	background-color: #e0e1e2;
+}
+.handsonTable thead th {
+	cursor: auto;
+	background: #e0e1e2;
+	border-left: 1px solid rgba(34, 36, 38, .1);
+	color: rgba(0, 0, 0, .87);
+	padding: 5px;
+	height: inherit;
+	vertical-align: inherit;
+	font-style: none;
+	font-weight: 700;
+	text-transform: none;
+	border-bottom: 1px solid rgba(34, 36, 38, .1);
+}
+.container {
+	margin-bottom: 5px !important;
+	padding: 10px !important;
+}
+.row .column h1 {
+	text-align: center;
+}
