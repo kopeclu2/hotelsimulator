@@ -9,7 +9,6 @@ class App extends React.Component {
       <div>
         <ConfigureButtons/>
         <HandsonTable />
-        <Table />
       </div>
     );
   }

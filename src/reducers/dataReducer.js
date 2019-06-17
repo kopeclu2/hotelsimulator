@@ -1,26 +1,20 @@
 
 import {combineReducers} from 'redux';
-import {initialStateMonths} from './initialState';
+import {initialStateMonths,initialBlueTwo,intialGreenOne,intialGreenTwo} from './initialState';
 
 
 
 const initialState = {
     data: initialStateMonths,
-      table2:[
-        ["2016", 89, 15,15,15,15,15,15,15,15,15,15,15,15,15,15,69,69, 169,149,58,58,4,5,18,5,48,1,8],
-        ["2016", 15,15,15,15,15,15,15,15,15,15,15,15,15,15,10, 11, 12, 13,149,58,58,4,5,18,5,48,1,8],
-        ["2017", 15,15,15,15,15,15,15,15,15,15,15,15,15,15,20, 11, 14, 13,149,58,58,4,5,18,5,48,1,8],
-      ],
+      tableGreenOne:intialGreenOne,
+      tableGreenTwo:intialGreenTwo,
+      tableBlueTwo:initialBlueTwo,
       readOnly:false
       
 }
 const dataReducer = (state = initialState,action) =>{
     if(action.type==='AFTER_CHANGE'){         
         if(action.payload!==null){
-            fetch('google.com',{
-                method:'POST',
-                body:JSON.stringify(state.data)
-            })
             /** LOAD STATE DATA */
              const newData = state.data; 
                         /** ROW */          /** COLUMN */           /**NEW VALUE */
@@ -54,6 +48,12 @@ const dataReducer = (state = initialState,action) =>{
                 readOnly:!state.readOnly  
             }
         }            
+    }
+    if(action.type==='FETCH_TABLE'){
+       ;
+        return Object.assign({}, state, {
+            data: {...state.data,"Leden":action.payload}
+            })
     }
     return state;
 }

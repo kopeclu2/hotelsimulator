@@ -8,17 +8,18 @@ import { HotTable } from '@handsontable/react';
 import './style.css';
 import { connect } from 'react-redux';
 import Handsontable from 'handsontable';
-import headersColumns, { rowHeaders } from '../settings/tableSettings';
+import headersColumns, { rowHeaders,rowHeadersBlueTwo } from '../settings/tableSettings';
 import { afterChange,fetchMonth } from '../actions/afterChange';
 import { readOnly } from '../actions/readOnly';
+import Table from './Table';
 
-class Table extends React.Component {
+class HandsonTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       month: 0,
-      monthsNames: [],
-      monthsValues: [],
+      monthsNames: Object.keys(this.props.data.data),
+      /*monthsValues: Object.values(this.props.data.data),*/
     };
     this.handsontableData = Handsontable.helper.createSpreadsheetData(
       6,
@@ -27,10 +28,10 @@ class Table extends React.Component {
     this.rigthButton = React.createRef();
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.setState({ monthsNames: Object.keys(this.props.data.data) });
     this.setState({ monthsValues: Object.values(this.props.data.data) });
-  }
+  }*/
 
   decrementMonth = () => {
     if (this.state.month <= 0) {
@@ -59,8 +60,12 @@ class Table extends React.Component {
       return 'disabled';
     }    
   }
-
+ 
+  
+ 
   render() {
+    console.log(this.props.data.data)
+    
     const monthName = this.state.monthsNames[this.state.month];
     return (
       <div>
@@ -80,7 +85,7 @@ class Table extends React.Component {
               <h1 className="ui huge">{monthName}</h1>
             </div>
             <div className="column">
-              <button
+             <button
                 ref={this.rigthButton}
                 onClick={this.incrementMonth}
                 className="ui right labeled icon button ui right floated"
@@ -94,7 +99,7 @@ class Table extends React.Component {
         </div>
         <HotTable
           settings={{
-            data: this.state.monthsValues[this.state.month],
+            data: this.props.data.data[monthName],
             rowHeaders,
             licenseKey: 'non-commercial-and-evaluation',
             colHeaders: headersColumns,
@@ -102,9 +107,25 @@ class Table extends React.Component {
             afterChange: this.props.afterChange,
             readOnly: this.props.readOnlyState,
             style: 'border:1px solid red',
-            className: 'handsonTable',
+            className: 'handsonTable blueTable',
           }}
         />
+        <div>-</div>
+        <HotTable
+          settings={{
+            data: this.props.data.tableBlueTwo,
+            rowHeaders:rowHeadersBlueTwo,
+            licenseKey: 'non-commercial-and-evaluation',
+            /*colHeaders: headersColumns,*/
+            rowHeaderWidth: 300,
+            afterChange: this.props.afterChange,
+            readOnly: this.props.readOnlyState,
+            style: 'border:1px solid red',
+            className: 'handsonTable blueTable',
+          }}
+        />
+        <div>-</div>
+        <Table/>
         <button 
         style={{margin:'0px auto',display:'block'}}
         className='ui button primary '
@@ -125,4 +146,4 @@ export default connect(
     readOnly,
     fetchMonth
   }
-)(Table);
+)(HandsonTable);

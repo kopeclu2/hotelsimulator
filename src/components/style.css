@@ -48,3 +48,9 @@
 	display: flex !important;
 	justify-content: center !important;
 }
+.greenTable tr td {
+	background: #b7f8ba !important;
+}
+.blueTable tr td {
+	background: rgb(141, 224, 252) !important;
+}

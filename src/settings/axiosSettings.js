@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL:'http://www.google.com'
+    baseURL:'https://hotely-be.herokuapp.com'
 });

@@ -7,6 +7,10 @@ const monthDays = () => {
   console.log(array);
   return array;
 };
+export const rowHeadersBlueTwo = [
+  'Advance(non-ref)',
+  'Realease pro advance',
+];
 export const rowHeaders = [
   'Pokoj vyssi kategorie',
   'Provize OTA',
@@ -15,6 +19,17 @@ export const rowHeaders = [
   'Provize/sleva CK individual',
   'Provize/sleva CK skupinove',
   'Gratuita',
+];
+export const rowHeadersGreenOne = [
+  'Celkem pokojů',
+  'Celkem prodáno',
+  'Celkem zbývá',
+];
+export const rowHeadersGreenTwo = [
+  'Prodáno standard',
+  'Zbývá k prodeji stanadard',
+  'Prodáno vyšší kategorie',
+  'Zbývá k prodeji vyšší kategorie',
 ];
 const headersColumn = monthDays();
 export default headersColumn;

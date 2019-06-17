@@ -11,11 +11,11 @@ export const afterChangeTable2 = (changes, source) => ({
     });
 export const fetchMonth = (month) => async(dispatch,getState) => {
     const data = JSON.stringify(getState().tableData.data[month]);
-    const response  = await fetchTables.post('/',data);
-    console.log(response);
+    const URL = '/?fbclid=IwAR1Qe3yfUBe7uFsCWA2GJqyg9_YadSznrGKSP8Wr-KUqt4HhvahN84-XOs4';
+    const response  = await fetchTables.get(URL);
     dispatch({
     type:'FETCH_TABLE',
-    payload:null
+    payload:response.data
     });
 }
     

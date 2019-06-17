@@ -7,7 +7,7 @@ import { HotTable } from '@handsontable/react';
 import './style.css';
 import { connect } from 'react-redux';
 import Handsontable from 'handsontable';
-import headersColumns, { rowHeaders } from '../settings/tableSettings';
+import headersColumns, { rowHeadersGreenTwo,rowHeaders,rowHeadersGreenOne } from '../settings/tableSettings';
 import { afterChangeTable2 } from '../actions/afterChange';
 import { readOnly } from '../actions/readOnly';
 
@@ -21,20 +21,32 @@ class Table extends React.Component {
   }
 
   render() {
-    console.log(this.props.readOnlyState);
     return (
       <div>
     
         <HotTable
           settings={{
-            data: this.props.data.table2,
-            rowHeaders,
+            data: this.props.data.tableGreenTwo,
+            rowHeaders:rowHeadersGreenOne,
             licenseKey: 'non-commercial-and-evaluation',
-            colHeaders: headersColumns,
+           /* colHeaders: headersColumns,*/
             rowHeaderWidth: 300,
-            afterChange: this.props.afterChangeTable2,
+            /*afterChange: this.props.afterChangeTable2,*/
             readOnly: this.props.readOnlyState,
-            className: 'handsonTable',
+            className: 'handsonTable greenTable',
+          }}
+        />
+        <div>-</div>
+        <HotTable
+          settings={{
+            data: this.props.data.tableGreenOne,
+            rowHeaders:rowHeadersGreenTwo,
+            licenseKey: 'non-commercial-and-evaluation',
+           /* colHeaders: headersColumns,*/
+            rowHeaderWidth: 300,
+           /* afterChange: this.props.afterChangeTable2,*/
+            readOnly: this.props.readOnlyState,
+            className: 'handsonTable greenTable',
           }}
         />
       </div>
